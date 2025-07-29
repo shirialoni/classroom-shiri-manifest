@@ -1,36 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: <deployment-name>
-  namespace: <namespace>
+  name: classroom-server
+  namespace: team-smartbase
   labels: 
-    env: <environment name> # 'dev/test/pre-prod/prod/infra/system'
-    project: <project name>
+    env: development
+    project: handover
 spec:
-  replicas: <number of pods>
+  replicas: 1
   selector:
     matchLabels:
-      app: <deployment-name>
+      app: classroom-server
   template:
     metadata:
       labels:
-        app: <deployment-name>
-        env: <environment name> # 'dev/test/pre-prod/prod/infra/system'
-        project: <project name>
+        app: classroom-server
+        env: development
+        project: handover
     spec:
       containers:
-        - name: <container-name>
-          image: <image>
+        - name: classroom-server-container
+          image: ghcr/shirialoni/classroom-server
           imagePullPolicy: Always
           ports:
-            - containerPort: <port>
+            - containerPort: 80
           resources:
             limits:
-              cpu: <cpu-limit>  # eg 500m 
-              memory: <memory-limit> # eg 499Mi
+              cpu: 500m 
+              memory: 499Mi
             requests:
-              cpu: <cpu-request> # eg 250m
-              memory: <memory-request> # eg 249Mi
+              cpu: 250m
+              memory: 249Mi
           envFrom:
             - secretRef:
                 name: <secret-name> # if you have secret
