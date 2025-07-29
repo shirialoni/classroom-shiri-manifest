@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: <deployment-name>
+  namespace: <namespace>
+  labels: 
+    env: <environment name> # 'dev/test/pre-prod/prod/infra/system'
+    project: <project name>
+spec:
+  replicas: <number of pods>
+  selector:
+    matchLabels:
+      app: <deployment-name>
+  template:
+    metadata:
+      labels:
+        app: <deployment-name>
+        env: <environment name> # 'dev/test/pre-prod/prod/infra/system'
+        project: <project name>
+    spec:
+      containers:
+        - name: <container-name>
+          image: <image>
+          imagePullPolicy: Always
+          ports:
+            - containerPort: <port>
+          resources:
+            limits:
+              cpu: <cpu-limit>  # eg 500m 
+              memory: <memory-limit> # eg 499Mi
+            requests:
+              cpu: <cpu-request> # eg 250m
+              memory: <memory-request> # eg 249Mi
+          envFrom:
+            - secretRef:
+                name: <secret-name> # if you have secret
+            - configMapRef:
+                name: <configmap-name> # if you have configmap
+      imagePullSecrets:
+        - name: <image-pull-secret>
