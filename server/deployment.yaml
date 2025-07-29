@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: classroom-server
+  namespace: team-smartbase
+  labels:
+    env: development
+    project: handover
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: classroom-server
+  template:
+    metadata:
+      labels:
+        app: classroom-server
+        env: development
+        project: handover
+    spec:
+      containers:
+        - name: classroom-server-container
+          image: ghcr/shirialoni/classroom-server
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              cpu: 500m
+              memory: 499Mi
+            requests:
+              cpu: 250m
+              memory: 249Mi
+          envFrom:
+            - secretRef:
+                name: <secret-name>
+            - configMapRef:
+                name: server-config
+      imagePullSecrets:
+        - name: ghcr-login-secret

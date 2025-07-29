@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: classroom-server
+  name: classroom-client
   namespace: team-smartbase
   labels: 
     env: development
@@ -10,17 +10,17 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: classroom-server
+      app: classroom-client
   template:
     metadata:
       labels:
-        app: classroom-server
+        app: classroom-client
         env: development
         project: handover
     spec:
       containers:
-        - name: classroom-server-container
-          image: ghcr/shirialoni/classroom-server
+        - name: classroom-client-container
+          image: ghcr/shirialoni/classroom-client
           imagePullPolicy: Always
           ports:
             - containerPort: 80
@@ -34,7 +34,5 @@ spec:
           envFrom:
             - secretRef:
                 name: <secret-name> # if you have secret
-            - configMapRef:
-                name: <configmap-name> # if you have configmap
       imagePullSecrets:
-        - name: <image-pull-secret>
+        - name: ghcr-login-secret

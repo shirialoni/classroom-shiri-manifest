@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: classroom
+  namespace: team-smartbase
+  labels:
+    env: development
+    project: classroom
+  annotations:
+    kubernetes.io/ingress.class: alb
+
+    alb.ingress.kubernetes.io/scheme: <internet/internal>-facing 
+    alb.ingress.kubernetes.io/group.name: <environment>-ingress-group
+    alb.ingress.kubernetes.io/load-balancer-name: <environment>-alb
+    alb.ingress.kubernetes.io/group.order: "2"
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+    alb.ingress.kubernetes.io/security-groups: <environment>-alb-sg
+    alb.ingress.kubernetes.io/manage-backend-security-group-rules: "true"
+    alb.ingress.kubernetes.io/target-type: ip
+    
+spec:
+  rules:  
+    - host: <the url of the application>
+      http:
+        paths:
+
+          - path: / 
+            pathType: Prefix
+            backend:
+              service:
+                name: <name of the service>
+                port:
+                  number: <port>

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: server-config
+  namespace: smartbase
+data:
+  DB_USER: <db user name>
+  DB_HOST: <db endpoint>
+  DB_PORT: <db port>
+  DB_NAME: <db name>
