@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: classroom-client-container-shiri
-          image: ghcr/shirialoni/classroom-client
+          image: ghcr.io/shirialoni/classroom-client
           imagePullPolicy: Always
           ports:
             - containerPort: 80

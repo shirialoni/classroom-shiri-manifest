@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: classroom-client-shiri
+  name: classroom-client-service-shiri
   namespace: team-smartbase
   labels:
     env: development
