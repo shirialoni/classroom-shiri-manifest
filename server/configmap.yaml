@@ -4,7 +4,9 @@ metadata:
   name: server-config
   namespace: smartbase
 data:
-  DB_USER: <db user name>
-  DB_HOST: <db endpoint>
-  DB_PORT: <db port>
-  DB_NAME: <db name>
+  DB_HOST : smartbase-nonprod.cjo4y2jzzy7c.il-central-1.rds.amazonaws.com
+  DB_PORT : 5432
+  DB_USERNAME : smartbaseadmin
+  DB_DATABASE : handover
+  DB_SCHEMA : shiri
+  ORIGIN_API : http://localhost:5173

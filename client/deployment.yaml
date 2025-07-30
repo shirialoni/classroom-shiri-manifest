@@ -33,6 +33,6 @@ spec:
               memory: 249Mi
           envFrom:
             - secretRef:
-                name: <secret-name> # if you have secret
+                name: <secret-name> 
       imagePullSecrets:
         - name: ghcr-login-secret

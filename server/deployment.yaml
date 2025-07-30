@@ -33,7 +33,7 @@ spec:
               memory: 249Mi
           envFrom:
             - secretRef:
-                name: <secret-name>
+                name: server-secret
             - configMapRef:
                 name: server-config
       imagePullSecrets:
