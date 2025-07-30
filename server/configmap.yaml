@@ -9,4 +9,4 @@ data:
   DB_USERNAME: smartbaseadmin
   DB_DATABASE: handover
   DB_SCHEMA: shiri
-  ORIGIN_API: http://localhost:5173
+  ORIGIN_API: https://smartbase-handover.dev.digital.idf.il/shiri/

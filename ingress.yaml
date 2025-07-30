@@ -40,7 +40,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: classroom-server
+                name: classroom-server-service-shiri
                 port:
                   number: 3000
 
@@ -48,6 +48,22 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: classroom-client
+                name: classroom-client-service-shiri
                 port:
-                  number: 5173
+                  number: 80
+          - path: /roni/api
+            pathType: Prefix
+            backend:
+              service:
+                name: roni-classroom-server
+                port:
+                  number: 3000
+
+          - path: /roni
+            pathType: Prefix
+            backend:
+              service:
+                name: roni-classroom-client
+                port:
+                  number: 3000
+
