@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: classroom-server
+  name: classroom-server-shiri
   namespace: team-smartbase
   labels:
     env: development
@@ -10,16 +10,16 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: classroom-server
+      app: classroom-server-shiri
   template:
     metadata:
       labels:
-        app: classroom-server
+        app: classroom-server-shiri
         env: development
         project: handover
     spec:
       containers:
-        - name: classroom-server-container
+        - name: classroom-server-container-shiri
           image: ghcr/shirialoni/classroom-server
           imagePullPolicy: Always
           ports:
@@ -33,8 +33,6 @@ spec:
               memory: 249Mi
           envFrom:
             - secretRef:
-                name: server-secret
+                name: server-secret-shiri
             - configMapRef:
-                name: server-config
-      imagePullSecrets:
-        - name: ghcr-login-secret
+                name: server-config-shiri

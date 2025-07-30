@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: server-config
+  name: server-config-shiri
   namespace: smartbase
 data:
   DB_HOST : smartbase-nonprod.cjo4y2jzzy7c.il-central-1.rds.amazonaws.com

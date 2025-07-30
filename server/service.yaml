@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: classroom-server
+  name: classroom-server-shiri
   namespace: team-smartbase
   labels:
     env: development
-    project: classroom-server-service
+    project: classroom-server-service-shiri
 spec:
   selector:
-    app: classroom-server
+    app: classroom-server-shiri
   ports:
     - protocol: TCP
       port: 3000

@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: classroom-client
+  name: classroom-client-shiri
   namespace: team-smartbase
   labels:
     env: development
-    project: classroom-client-service
+    project: classroom-client-service-shiri
 spec:
   selector:
-    app: classroom-client
+    app: classroom-client-shiri
   ports:
     - protocol: TCP
       port: 80
