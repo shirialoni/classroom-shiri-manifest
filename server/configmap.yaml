@@ -10,3 +10,4 @@ data:
   DB_DATABASE: handover
   DB_SCHEMA: shiri
   ORIGIN_API: https://smartbase-handover.dev.digital.idf.il/shiri/
+  BASE_NAME: /shiri/api
